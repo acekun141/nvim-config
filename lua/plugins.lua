@@ -33,4 +33,18 @@ return require('packer').startup(function(use)
 	use { 'L3MON4D3/LuaSnip' } -- Snippets plugin
 	use { 'ibhagwan/fzf-lua', requires = {'kyazdani42/nvim-web-devicons'} }
 	use { 'junegunn/fzf', run = './install --bin' }
+	use ({
+	    "glepnir/lspsaga.nvim",
+	    branch = "main",
+	    config = function()
+		local saga = require("lspsaga")
+
+		saga.init_lsp_saga({
+		    border_style = "round",
+		})
+	    end,
+	})
+	use { 'JoosepAlviste/nvim-ts-context-commentstring' }
+	use { 'tpope/vim-commentary' }
+	use { 'fatih/vim-go' }
 end)
